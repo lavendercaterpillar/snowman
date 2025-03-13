@@ -31,9 +31,9 @@ def snowman(snowman_word):
         user_input = get_letter_from_user(correct_letter_guess_statuses,wrong_guesses_list)
 
         if user_input in snowman_word:
-            for letter in snowman_word:
-                if letter == user_input:
-                    correct_letter_guess_statuses[letter] = True
+            # for letter in snowman_word: #revised based on Adrian's feedback
+            #     if letter == user_input:
+            correct_letter_guess_statuses[user_input] = True
         else:
             wrong_guesses_list.append(user_input)
 
@@ -41,7 +41,7 @@ def snowman(snowman_word):
 
         if is_word_guessed(snowman_word, correct_letter_guess_statuses):
             print("\nyou win")
-            break
+            return
 
     print(f"\nsorry, you lose!\nthe word was {snowman_word}")
     return
